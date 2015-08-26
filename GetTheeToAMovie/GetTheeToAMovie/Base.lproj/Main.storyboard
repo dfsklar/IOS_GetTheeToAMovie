@@ -34,7 +34,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="movieListTable" destination="k3f-Uv-ftL" id="g8p-n5-0Nf"/>
+                        <outlet property="catalogTable" destination="k3f-Uv-ftL" id="Sdw-AR-saU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>

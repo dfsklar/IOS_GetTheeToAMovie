@@ -13,7 +13,7 @@
 		6856EC131B8E392F00B162A9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6856EC121B8E392F00B162A9 /* Images.xcassets */; };
 		6856EC161B8E392F00B162A9 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6856EC141B8E392F00B162A9 /* LaunchScreen.xib */; };
 		6856EC221B8E392F00B162A9 /* GetTheeToAMovieTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6856EC211B8E392F00B162A9 /* GetTheeToAMovieTests.swift */; };
-		6856EC2C1B8E3D5800B162A9 /* CatalogTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6856EC2B1B8E3D5800B162A9 /* CatalogTableView.swift */; };
+		686327371B8E7F27001682BE /* CatalogTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686327361B8E7F27001682BE /* CatalogTableView.swift */; };
 		E7D62D74EB0C51E8B40DCDA4 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CBDFC3C1F4C409635585E4C /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -40,7 +40,7 @@
 		6856EC1B1B8E392F00B162A9 /* GetTheeToAMovieTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GetTheeToAMovieTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6856EC201B8E392F00B162A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6856EC211B8E392F00B162A9 /* GetTheeToAMovieTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTheeToAMovieTests.swift; sourceTree = "<group>"; };
-		6856EC2B1B8E3D5800B162A9 /* CatalogTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CatalogTableView.swift; sourceTree = "<group>"; };
+		686327361B8E7F27001682BE /* CatalogTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CatalogTableView.swift; sourceTree = "<group>"; };
 		BEEC4272C4F667EDB4EEED58 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -92,7 +92,7 @@
 				6856EC121B8E392F00B162A9 /* Images.xcassets */,
 				6856EC141B8E392F00B162A9 /* LaunchScreen.xib */,
 				6856EC091B8E392F00B162A9 /* Supporting Files */,
-				6856EC2B1B8E3D5800B162A9 /* CatalogTableView.swift */,
+				686327361B8E7F27001682BE /* CatalogTableView.swift */,
 			);
 			path = GetTheeToAMovie;
 			sourceTree = "<group>";
@@ -274,7 +274,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6856EC2C1B8E3D5800B162A9 /* CatalogTableView.swift in Sources */,
+				686327371B8E7F27001682BE /* CatalogTableView.swift in Sources */,
 				6856EC0E1B8E392F00B162A9 /* CatalogViewController.swift in Sources */,
 				6856EC0C1B8E392F00B162A9 /* AppDelegate.swift in Sources */,
 			);
