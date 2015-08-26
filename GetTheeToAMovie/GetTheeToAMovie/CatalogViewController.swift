@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CatalogViewController: UIViewController, UITableViewDataSource {
+class CatalogViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     let igClientID = "d2f5486933b342db801303d699c76ecb"
     
@@ -22,7 +22,7 @@ class CatalogViewController: UIViewController, UITableViewDataSource {
         super.viewDidLoad()
 
         self.catalogTable.dataSource = self
-        //self.catalogTable.delegate = self
+        self.catalogTable.delegate = self 
 
         // Do any additional setup after loading the view, typically from a nib.
         println("catalog view did load")
@@ -32,13 +32,13 @@ class CatalogViewController: UIViewController, UITableViewDataSource {
             (response: NSURLResponse!, data: NSData!, error: NSError!) -> Void in
             var responseDict = NSJSONSerialization.JSONObjectWithData(data, options:nil, error:nil) as! NSDictionary
             self.photoList = responseDict["data"] as! NSArray
-            println("Loaded good")
+            println("Async load good")
             self.catalogTable.reloadData()
         }
     }
     
     func tableView(catalogTable: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = catalogTable.dequeueReusableCellWithIdentifier("com.codepath.DemoPrototypeCell", forIndexPath: indexPath) as! UITableViewCell
+        let cell = catalogTable.dequeueReusableCellWithIdentifier("com.sklardevelopment.Cell", forIndexPath: indexPath) as! UITableViewCell
         //let cityState = data[indexPath.row].componentsSeparatedByString(", ")
         //cell.cityLabel.text = cityState.first
         //cell.stateLabel.text = cityState.last
