@@ -9,6 +9,8 @@
 import UIKit
 
 class CatalogTableView: UITableView {
+    
+    // NOT BEING USED -- turned out to be not convenient 
 
     /*
     // Only override drawRect: if you perform custom drawing.

@@ -20,13 +20,21 @@
                                 <rect key="frame" x="0.0" y="-8" width="600" height="608"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="com.sklardevelopment.Cell" id="Hhd-vm-cvY">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="com.sklardevelopment.Cell" id="Hhd-vm-cvY" customClass="CatalogCellViewTableViewCell" customModule="GetTheeToAMovie" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Hhd-vm-cvY" id="bpc-fw-ZGD">
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5nl-YY-3rx">
+                                                    <rect key="frame" x="44" y="0.0" width="150" height="150"/>
+                                                </imageView>
+                                            </subviews>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="1" green="0.01067327302" blue="0.11052405849999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <outlet property="imagewidget" destination="5nl-YY-3rx" id="BE8-Mr-cWy"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>

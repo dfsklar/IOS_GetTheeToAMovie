@@ -1,2 +1,9 @@
-source "https://github.com/CocoaPods/Specs.git"
-pod 'AFNetworking'
+use_frameworks!
+
+target 'GetTheeToAMovie' do
+    pod 'AFNetworking', "~>2.0"
+end
+
+target 'GetTheeToAMovieTests' do
+
+end

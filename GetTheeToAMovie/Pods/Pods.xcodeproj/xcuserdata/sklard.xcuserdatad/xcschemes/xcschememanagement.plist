@@ -9,7 +9,7 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods.xcscheme</key>
+		<key>Pods-GetTheeToAMovie.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -17,12 +17,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>5276349E356FB4161512987B622D29A0</key>
+		<key>6A04ACCD8CBB973B0524CF0825E7A28C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E0A0843C35E4406010926441E5E9C150</key>
+		<key>E6974053507C6FF314BC7E21024E05AA</key>
 		<dict>
 			<key>primary</key>
 			<true/>

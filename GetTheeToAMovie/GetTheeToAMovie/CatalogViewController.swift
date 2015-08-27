@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AFNetworking
 
 class CatalogViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
@@ -14,7 +15,7 @@ class CatalogViewController: UIViewController, UITableViewDataSource, UITableVie
     
     var photoList : NSArray = []
     
-    @IBOutlet weak var prototypeMovieCard: UITableViewCell!
+    @IBOutlet weak var prototypeMovieCard: CatalogCellViewTableViewCell!
     
     @IBOutlet weak var catalogTable: UITableView!
     
@@ -22,7 +23,9 @@ class CatalogViewController: UIViewController, UITableViewDataSource, UITableVie
         super.viewDidLoad()
 
         self.catalogTable.dataSource = self
-        self.catalogTable.delegate = self 
+        self.catalogTable.delegate = self
+        
+        self.catalogTable.rowHeight = 150
 
         // Do any additional setup after loading the view, typically from a nib.
         println("catalog view did load")
@@ -38,7 +41,16 @@ class CatalogViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     func tableView(catalogTable: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = catalogTable.dequeueReusableCellWithIdentifier("com.sklardevelopment.Cell", forIndexPath: indexPath) as! UITableViewCell
+        let cell = catalogTable.dequeueReusableCellWithIdentifier("com.sklardevelopment.Cell", forIndexPath: indexPath) as! CatalogCellViewTableViewCell
+        
+        var igInfo : NSDictionary = self.photoList[indexPath.row] as! NSDictionary
+        
+        var imgURL = (igInfo.valueForKeyPath("images.thumbnail.url")) as! String
+        
+        println(imgURL)
+        
+        cell.imagewidget.setImageWithURL(NSURL(string: imgURL)!)
+        
         //let cityState = data[indexPath.row].componentsSeparatedByString(", ")
         //cell.cityLabel.text = cityState.first
         //cell.stateLabel.text = cityState.last
