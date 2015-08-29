@@ -11,6 +11,8 @@ import UIKit
 class CatalogCellViewTableViewCell: UITableViewCell {
 
     @IBOutlet weak var imagewidget: UIImageView!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
