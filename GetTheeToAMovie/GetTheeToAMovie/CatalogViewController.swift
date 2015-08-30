@@ -32,7 +32,7 @@ class CatalogViewController: UIViewController, UITableViewDataSource, UITableVie
         
         refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action:"onRefresh", forControlEvents:UIControlEvents.ValueChanged)
-        //scrollView.insertSubview(refreshControl, atIndex: 0)
+        catalogTable.insertSubview(refreshControl, atIndex: 0)
         
         // Access static cached data simulating the RottenTom API
         let cachedDataUrlString = "https://gist.githubusercontent.com/timothy1ee/d1778ca5b944ed974db0/raw/489d812c7ceeec0ac15ab77bf7c47849f2d1eb2b/gistfile1.json"
@@ -49,6 +49,20 @@ class CatalogViewController: UIViewController, UITableViewDataSource, UITableVie
             self.catalogTable.reloadData()
             SwiftLoader.hide()
         }
+    }
+    
+    func delay(delay:Double, closure:()->()) {
+        dispatch_after(
+          dispatch_time(
+            DISPATCH_TIME_NOW,
+            Int64(delay * Double(NSEC_PER_SEC))
+          ), dispatch_get_main_queue(), closure)
+    }
+    
+    func onRefresh() {
+        delay(2, closure: {
+            self.refreshControl.endRefreshing()
+        })
     }
     
     
