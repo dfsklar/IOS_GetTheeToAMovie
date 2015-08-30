@@ -84,15 +84,10 @@ class CatalogViewController: UIViewController, UITableViewDataSource, UITableVie
         
         var imgURL = (igInfo.valueForKeyPath("posters.thumbnail")) as! String
         
-        println(imgURL)
-        
         cell.imagewidget.setImageWithURL(NSURL(string: imgURL)!)
         cell.descriptionLabel.text =  (igInfo.valueForKeyPath("synopsis")) as? String
         cell.titleLabel.text = (igInfo.valueForKeyPath("title")) as? String
         
-        //let cityState = data[indexPath.row].componentsSeparatedByString(", ")
-        //cell.cityLabel.text = cityState.first
-        //cell.stateLabel.text = cityState.last
         return cell
     }
     
