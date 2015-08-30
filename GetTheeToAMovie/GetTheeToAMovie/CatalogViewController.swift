@@ -8,6 +8,7 @@
 
 import UIKit
 import AFNetworking
+import SwiftLoader
 
 class CatalogViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
@@ -19,6 +20,8 @@ class CatalogViewController: UIViewController, UITableViewDataSource, UITableVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        SwiftLoader.show(title: "Loading...", animated: true)
 
         self.catalogTable.dataSource = self
         self.catalogTable.delegate = self
@@ -38,6 +41,7 @@ class CatalogViewController: UIViewController, UITableViewDataSource, UITableVie
             self.movieList = responseDict["movies"] as! NSArray
             println("Async load good")
             self.catalogTable.reloadData()
+            SwiftLoader.hide()
         }
     }
     

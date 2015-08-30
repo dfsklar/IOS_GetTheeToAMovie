@@ -2,6 +2,7 @@ use_frameworks!
 
 target 'GetTheeToAMovie' do
     pod 'AFNetworking', "~>2.0"
+    pod 'SwiftLoader', "~>0.2"
 end
 
 target 'GetTheeToAMovieTests' do
