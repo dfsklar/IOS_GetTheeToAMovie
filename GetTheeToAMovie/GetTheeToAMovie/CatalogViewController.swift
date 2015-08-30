@@ -12,6 +12,8 @@ import SwiftLoader
 
 class CatalogViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    @IBOutlet weak var DisplayError: UIView!
+    
     var refreshControl: UIRefreshControl!
     
     var movieList : NSArray = []
@@ -22,7 +24,6 @@ class CatalogViewController: UIViewController, UITableViewDataSource, UITableVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
 
         self.catalogTable.dataSource = self
         self.catalogTable.delegate = self
@@ -42,14 +43,21 @@ class CatalogViewController: UIViewController, UITableViewDataSource, UITableVie
         println("catalog view did load")
         var url = NSURL(string: cachedDataUrlString)!
         var request = NSURLRequest(URL: url)
+        DisplayError.hidden = true
         SwiftLoader.show(title: "Loading...", animated: true)
         NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue()) {
             (response: NSURLResponse!, data: NSData!, error: NSError!) -> Void in
-            var responseDict = NSJSONSerialization.JSONObjectWithData(data, options:nil, error:nil) as! NSDictionary
-            self.movieList = responseDict["movies"] as! NSArray
-            println("Async load good")
-            self.catalogTable.reloadData()
+            
+            if let boolDidError = error {
+              self.DisplayError.hidden = false
+            } else {
+              var responseDict = NSJSONSerialization.JSONObjectWithData(data, options:nil, error:nil) as! NSDictionary
+              self.movieList = responseDict["movies"] as! NSArray
+              println("Async load good")
+              self.catalogTable.reloadData()
+            }
             SwiftLoader.hide()
+
         }
     }
     

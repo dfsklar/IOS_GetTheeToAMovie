@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="dp3-Rh-ceP">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Get Thee to a Movie!-->
@@ -68,11 +69,35 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <view hidden="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7MR-Ey-01w" userLabel="DisplayErrorMessage">
+                                <rect key="frame" x="0.0" y="178" width="160" height="240"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Network Error" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4qD-5p-NfB">
+                                        <rect key="frame" x="21" y="115" width="42" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="Ho9-CH-QdR"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="38" id="3Sb-HG-zri"/>
+                                    <constraint firstAttribute="trailing" secondItem="4qD-5p-NfB" secondAttribute="trailing" constant="3" id="5ph-Ln-N1H"/>
+                                    <constraint firstItem="4qD-5p-NfB" firstAttribute="leading" secondItem="7MR-Ey-01w" secondAttribute="leading" constant="3" id="K4y-10-c9O"/>
+                                    <constraint firstItem="4qD-5p-NfB" firstAttribute="top" secondItem="7MR-Ey-01w" secondAttribute="top" constant="3" id="o3C-xo-Z5L"/>
+                                </constraints>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.94010416666666663" green="0.58640211352187521" blue="0.74797313599860626" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="k3f-Uv-ftL" secondAttribute="bottom" id="5HQ-vB-F5O"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="7MR-Ey-01w" secondAttribute="trailing" id="EOP-S9-Fr8"/>
                             <constraint firstItem="k3f-Uv-ftL" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="HWy-rT-Ria"/>
+                            <constraint firstItem="7MR-Ey-01w" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="OT4-jf-AyY"/>
+                            <constraint firstItem="7MR-Ey-01w" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="VUv-iy-Rth"/>
                             <constraint firstItem="k3f-Uv-ftL" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="nzo-eB-nu3"/>
                             <constraint firstAttribute="trailing" secondItem="k3f-Uv-ftL" secondAttribute="trailing" id="tmK-X3-JM6"/>
                         </constraints>
@@ -80,6 +105,7 @@
                     <navigationItem key="navigationItem" title="Get Thee to a Movie!" id="hTx-RB-U88"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
+                        <outlet property="DisplayError" destination="7MR-Ey-01w" id="93F-bi-mgf"/>
                         <outlet property="catalogTable" destination="k3f-Uv-ftL" id="Sdw-AR-saU"/>
                     </connections>
                 </viewController>

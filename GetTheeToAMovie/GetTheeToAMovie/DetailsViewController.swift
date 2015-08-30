@@ -24,7 +24,11 @@ class DetailsViewController: UIViewController {
         titleLabel.text = details.valueForKeyPath("title") as? String
         synopsisLabel.text = details.valueForKeyPath("synopsis") as? String
         
-        let imgURL = (details.valueForKeyPath("posters.thumbnail")) as! String
+        var imgURL = (details.valueForKeyPath("posters.thumbnail")) as! String
+        var range = imgURL.rangeOfString(".*cloudfront.net/", options: .RegularExpressionSearch)
+        if let range = range {
+          imgURL = imgURL.stringByReplacingCharactersInRange(range, withString: "https://content6.flixster.com/")
+        }
         posterImage.setImageWithURL(NSURL(string: imgURL)!)
 
         synopsisLabel.sizeToFit()
