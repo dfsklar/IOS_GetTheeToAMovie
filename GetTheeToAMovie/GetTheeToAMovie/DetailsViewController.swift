@@ -25,6 +25,11 @@ class DetailsViewController: UIViewController {
         synopsisLabel.text = details.valueForKeyPath("synopsis") as? String
         
         var imgURL = (details.valueForKeyPath("posters.thumbnail")) as! String
+        
+        // 1: Show the low-res image since it's already in cache and will load immediately
+        posterImage.setImageWithURL(NSURL(string: imgURL)!)
+
+        // 2: Hack the URL to obtain the high-res image
         var range = imgURL.rangeOfString(".*cloudfront.net/", options: .RegularExpressionSearch)
         if let range = range {
           imgURL = imgURL.stringByReplacingCharactersInRange(range, withString: "https://content6.flixster.com/")
