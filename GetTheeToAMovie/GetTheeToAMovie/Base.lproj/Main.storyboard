@@ -48,6 +48,7 @@
                                             <outlet property="descriptionLabel" destination="8Iw-HB-eVj" id="zz0-gf-ZpI"/>
                                             <outlet property="imagewidget" destination="5nl-YY-3rx" id="BE8-Mr-cWy"/>
                                             <outlet property="titleLabel" destination="9wl-l6-Qll" id="5t3-xc-Kmg"/>
+                                            <segue destination="sKf-Ft-A5R" kind="show" id="hhM-Cc-9JA"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -62,7 +63,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1390" y="392"/>
+            <point key="canvasLocation" x="1156" y="573"/>
+        </scene>
+        <!--Details View Controller-->
+        <scene sceneID="U2z-Mg-bSC">
+            <objects>
+                <viewController id="sKf-Ft-A5R" customClass="DetailsViewController" customModule="GetTheeToAMovie" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Vsm-zn-zIa"/>
+                        <viewControllerLayoutGuide type="bottom" id="Dik-6f-guw"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="wpo-h3-Asg">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jdm-b9-Uhl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1787" y="571"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="lrr-8Y-fjZ">
@@ -80,7 +99,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dth-38-FSr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="323" y="1053"/>
+            <point key="canvasLocation" x="480" y="573"/>
         </scene>
     </scenes>
 </document>
