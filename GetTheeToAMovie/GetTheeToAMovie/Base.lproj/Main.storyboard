@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="dp3-Rh-ceP">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Get Thee to a Movie!-->
@@ -19,9 +18,6 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="161" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="k3f-Uv-ftL" userLabel="PhotoCatalog">
                                 <rect key="frame" x="0.0" y="-8" width="310" height="480"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="480" id="41x-bb-AFy"/>
-                                </constraints>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="com.sklardevelopment.moviecatalog.cell" rowHeight="120" id="Hhd-vm-cvY" customClass="CatalogCellViewTableViewCell" customModule="GetTheeToAMovie" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
@@ -31,23 +27,32 @@
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5nl-YY-3rx">
                                                     <rect key="frame" x="8" y="13" width="66" height="93"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="66" id="fFD-0n-3yv"/>
+                                                        <constraint firstAttribute="height" constant="93" id="zQA-UT-SOW"/>
+                                                    </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9wl-l6-Qll">
-                                                    <rect key="frame" x="97" y="13" width="495" height="21"/>
+                                                    <rect key="frame" x="97" y="13" width="100" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Iw-HB-eVj">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Iw-HB-eVj">
                                                     <rect key="frame" x="97" y="42" width="495" height="64"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="64" id="63U-Zu-bSR"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailingMargin" secondItem="9wl-l6-Qll" secondAttribute="trailing" id="Dwh-qB-cFL"/>
+                                                <constraint firstItem="8Iw-HB-eVj" firstAttribute="leading" secondItem="5nl-YY-3rx" secondAttribute="trailing" constant="23" id="DnH-5u-3VM"/>
                                                 <constraint firstItem="9wl-l6-Qll" firstAttribute="leading" secondItem="5nl-YY-3rx" secondAttribute="trailing" constant="23" id="Fvg-Um-LbZ"/>
+                                                <constraint firstItem="5nl-YY-3rx" firstAttribute="leading" secondItem="bpc-fw-ZGD" secondAttribute="leading" constant="8" id="e5o-91-DcH"/>
+                                                <constraint firstAttribute="trailing" secondItem="8Iw-HB-eVj" secondAttribute="trailing" constant="3" id="rUw-sW-7PB"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="1" green="0.99857253765082721" blue="0.82141508072916336" alpha="1" colorSpace="calibratedRGB"/>
@@ -63,6 +68,7 @@
                         </subviews>
                         <color key="backgroundColor" red="0.94010416666666663" green="0.58640211352187521" blue="0.74797313599860626" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="k3f-Uv-ftL" secondAttribute="bottom" id="5HQ-vB-F5O"/>
                             <constraint firstItem="k3f-Uv-ftL" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="3" id="HWy-rT-Ria"/>
                             <constraint firstItem="k3f-Uv-ftL" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" constant="3" id="nzo-eB-nu3"/>
                             <constraint firstAttribute="trailing" secondItem="k3f-Uv-ftL" secondAttribute="trailing" constant="3" id="tmK-X3-JM6"/>
