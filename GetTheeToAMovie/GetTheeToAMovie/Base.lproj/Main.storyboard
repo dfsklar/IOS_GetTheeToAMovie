@@ -98,7 +98,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="13t-Lf-BE8">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="13t-Lf-BE8">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5fY-kA-Q3L">
@@ -131,7 +131,11 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="bottom" secondItem="13t-Lf-BE8" secondAttribute="bottom" id="1Bu-BS-8th"/>
+                            <constraint firstAttribute="trailing" secondItem="13t-Lf-BE8" secondAttribute="trailing" id="42F-SK-hvN"/>
+                            <constraint firstItem="13t-Lf-BE8" firstAttribute="top" secondItem="wpo-h3-Asg" secondAttribute="top" id="Kfp-K7-f4E"/>
                             <constraint firstAttribute="trailing" secondItem="5fY-kA-Q3L" secondAttribute="trailing" id="hsB-R6-vzv"/>
+                            <constraint firstItem="13t-Lf-BE8" firstAttribute="leading" secondItem="wpo-h3-Asg" secondAttribute="leading" id="iOn-Ve-5WR"/>
                             <constraint firstAttribute="bottom" secondItem="5fY-kA-Q3L" secondAttribute="bottom" id="iix-fu-zMs"/>
                             <constraint firstItem="5fY-kA-Q3L" firstAttribute="top" secondItem="Vsm-zn-zIa" secondAttribute="bottom" constant="140" id="xbT-U1-uPn"/>
                             <constraint firstItem="5fY-kA-Q3L" firstAttribute="leading" secondItem="wpo-h3-Asg" secondAttribute="leading" id="zNV-g3-1qs"/>

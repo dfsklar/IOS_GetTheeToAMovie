@@ -12,6 +12,8 @@ import SwiftLoader
 
 class CatalogViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    var refreshControl: UIRefreshControl!
+    
     var movieList : NSArray = []
     
     @IBOutlet weak var prototypeMovieCard: CatalogCellViewTableViewCell!
@@ -27,6 +29,10 @@ class CatalogViewController: UIViewController, UITableViewDataSource, UITableVie
         self.catalogTable.delegate = self
         
         self.catalogTable.rowHeight = 120
+        
+        refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action:"onRefresh", forControlEvents:UIControlEvents.ValueChanged)
+        //scrollView.insertSubview(refreshControl, atIndex: 0)
         
         // Access static cached data simulating the RottenTom API
         let cachedDataUrlString = "https://gist.githubusercontent.com/timothy1ee/d1778ca5b944ed974db0/raw/489d812c7ceeec0ac15ab77bf7c47849f2d1eb2b/gistfile1.json"
