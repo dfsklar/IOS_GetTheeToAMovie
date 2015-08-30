@@ -108,6 +108,9 @@ class CatalogViewController: UIViewController, UITableViewDataSource, UITableVie
         let detailsDict = movieList[indexPathSelectedCell.row] as! NSDictionary
         let destinationViewC = segue.destinationViewController as! DetailsViewController
         destinationViewC.details = detailsDict
+        
+        // Deselect the cell that was touched so upon return we have a  clean slate
+        catalogTable.deselectRowAtIndexPath(indexPathSelectedCell, animated:false)
     }
     
 
