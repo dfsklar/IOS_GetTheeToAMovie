@@ -41,8 +41,10 @@ class CatalogViewController: UIViewController, UITableViewDataSource, UITableVie
         }
     }
     
+    
+    // Set up the look of a particular allocated cell in the table, to show a particular movie in the catalog
     func tableView(catalogTable: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = catalogTable.dequeueReusableCellWithIdentifier("com.sklardevelopment.Cell", forIndexPath: indexPath) as! CatalogCellViewTableViewCell
+        let cell = catalogTable.dequeueReusableCellWithIdentifier("com.sklardevelopment.moviecatalog.cell", forIndexPath: indexPath) as! CatalogCellViewTableViewCell
         
         var igInfo : NSDictionary = self.movieList[indexPath.row] as! NSDictionary
         
@@ -60,6 +62,7 @@ class CatalogViewController: UIViewController, UITableViewDataSource, UITableVie
         return cell
     }
     
+    // Determine how many cells are needed for the current movie collection
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.movieList.count
     }

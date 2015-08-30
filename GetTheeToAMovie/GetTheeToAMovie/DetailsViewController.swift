@@ -10,12 +10,25 @@ import UIKit
 
 class DetailsViewController: UIViewController {
 
+    @IBOutlet weak var posterImage: UIImageView!
     @IBOutlet weak var labelWidget: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
+    
+    @IBOutlet weak var synopsisLabel: UILabel!
+
     
     var details: NSDictionary!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        titleLabel.text = details.valueForKeyPath("title") as? String
+        synopsisLabel.text = details.valueForKeyPath("synopsis") as? String
+        
+        let imgURL = (details.valueForKeyPath("posters.thumbnail")) as! String
+        posterImage.setImageWithURL(NSURL(string: imgURL)!)
+
+        synopsisLabel.sizeToFit()
 
         // Do any additional setup after loading the view.
     }
@@ -25,15 +38,4 @@ class DetailsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
