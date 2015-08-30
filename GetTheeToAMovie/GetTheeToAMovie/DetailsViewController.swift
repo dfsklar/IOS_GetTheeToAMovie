@@ -11,9 +11,8 @@ import UIKit
 class DetailsViewController: UIViewController {
 
     @IBOutlet weak var posterImage: UIImageView!
-    @IBOutlet weak var labelWidget: UILabel!
-    @IBOutlet weak var titleLabel: UILabel!
-    
+
+    @IBOutlet weak var titleLabel: UILabel!    
     @IBOutlet weak var synopsisLabel: UILabel!
 
     
