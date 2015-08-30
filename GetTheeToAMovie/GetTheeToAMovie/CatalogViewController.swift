@@ -65,6 +65,14 @@ class CatalogViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let cell = sender as! UITableViewCell
+        let indexPathSelectedCell = catalogTable.indexPathForCell(cell)!
+        let detailsDict = movieList[indexPathSelectedCell.row] as! NSDictionary
+        let destinationViewC = segue.destinationViewController as! DetailsViewController
+        destinationViewC.details = detailsDict
+    }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
