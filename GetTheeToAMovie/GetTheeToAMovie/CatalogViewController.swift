@@ -23,13 +23,14 @@ class CatalogViewController: UIViewController, UITableViewDataSource, UITableVie
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        SwiftLoader.show(title: "Loading...", animated: true)
 
         self.catalogTable.dataSource = self
         self.catalogTable.delegate = self
         
+        // Let's use fixed-height approach
         self.catalogTable.rowHeight = 120
         
+        // Set up "refresh list via swipe gesture" behavior
         refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action:"onRefresh", forControlEvents:UIControlEvents.ValueChanged)
         catalogTable.insertSubview(refreshControl, atIndex: 0)
@@ -41,6 +42,7 @@ class CatalogViewController: UIViewController, UITableViewDataSource, UITableVie
         println("catalog view did load")
         var url = NSURL(string: cachedDataUrlString)!
         var request = NSURLRequest(URL: url)
+        SwiftLoader.show(title: "Loading...", animated: true)
         NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue()) {
             (response: NSURLResponse!, data: NSData!, error: NSError!) -> Void in
             var responseDict = NSJSONSerialization.JSONObjectWithData(data, options:nil, error:nil) as! NSDictionary
