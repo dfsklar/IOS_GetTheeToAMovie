@@ -64,20 +64,21 @@ class DetailsViewController: UIViewController {
         
         descriptionRichText.textStorage.setAttributedString(convertText(richSynopsis))
         
-        var imgURL = (details.valueForKeyPath("posters.thumbnail")) as! String
-        
-        // 1: Show the low-res image since it's already in cache and will load immediately
-        posterImage.setImageWithURL(NSURL(string: imgURL)!)
-        
-        // 2: Hack the URL to obtain the high-res image
-        var range = imgURL.rangeOfString(".*cloudfront.net/", options: .RegularExpressionSearch)
-        if let range = range {
-            imgURL = imgURL.stringByReplacingCharactersInRange(range, withString: "https://content6.flixster.com/")
+        if var imgURL = (details.valueForKeyPath("posters.thumbnail")) as? String {
+            
+            // 1: Show the low-res image since it's already in cache and will load immediately
+            posterImage.setImageWithURL(NSURL(string: imgURL)!)
+            
+            // 2: Hack the URL to obtain the high-res image
+            var range = imgURL.rangeOfString(".*cloudfront.net/", options: .RegularExpressionSearch)
+            if let range = range {
+                imgURL = imgURL.stringByReplacingCharactersInRange(range, withString: "https://content6.flixster.com/")
+            }
+            posterImage.setImageWithURL(NSURL(string: imgURL)!)
         }
-        posterImage.setImageWithURL(NSURL(string: imgURL)!)
         
-        // Do any additional setup after loading the view.
     }
+
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
