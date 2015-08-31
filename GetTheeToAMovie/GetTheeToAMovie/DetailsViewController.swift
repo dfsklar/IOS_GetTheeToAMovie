@@ -9,15 +9,16 @@
 import UIKit
 
 class DetailsViewController: UIViewController {
-
+    
     @IBOutlet weak var posterImage: UIImageView!
-
+    
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionRichText: UITextView!
     
     
-    // A brilliant HTML-to-attributedstring utility, from:
+    // An HTML-to-attributedstring utility, borrowed from:
     // http://stackoverflow.com/questions/27164928/create-an-attributed-string-out-of-plain-android-formated-text-in-swift-for-io
+    //
     func convertText(inputText: String) -> NSAttributedString {
         
         var html = inputText
@@ -38,22 +39,28 @@ class DetailsViewController: UIViewController {
             error: nil)!
         return attrStr
     }
-
+    
     
     var details: NSDictionary!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         titleLabel.text = details.valueForKeyPath("title") as? String
         
-        //let richSynopsis = "<b>" + (details.valueForKeyPath("mpaa_rating") as! String) + "</b>"
+        var richSynopsis = ""
         
-        let strRating = details.valueForKeyPath("mpaa_rating") as! String
-        let intYear = (details.valueForKeyPath("year") as! Int)
-        let synopsis = details.valueForKeyPath("synopsis") as! String
+        if let strRating = details.valueForKeyPath("mpaa_rating") as? String {
+            richSynopsis += "<b>Rated \(strRating). </b>"
+        }
         
-        let richSynopsis = "<b>\(strRating)</b>, <b>\(intYear)</b><br/>\(synopsis)"
+        if let intYear = (details.valueForKeyPath("year") as? Int) {
+            richSynopsis += "<b>Released in \(intYear). </b>"
+        }
+        
+        if let synopsis = details.valueForKeyPath("synopsis") as? String {
+            richSynopsis += "<br/>&nbsp;<br/>\(synopsis)"
+        }
         
         descriptionRichText.textStorage.setAttributedString(convertText(richSynopsis))
         
@@ -61,17 +68,17 @@ class DetailsViewController: UIViewController {
         
         // 1: Show the low-res image since it's already in cache and will load immediately
         posterImage.setImageWithURL(NSURL(string: imgURL)!)
-
+        
         // 2: Hack the URL to obtain the high-res image
         var range = imgURL.rangeOfString(".*cloudfront.net/", options: .RegularExpressionSearch)
         if let range = range {
-          imgURL = imgURL.stringByReplacingCharactersInRange(range, withString: "https://content6.flixster.com/")
+            imgURL = imgURL.stringByReplacingCharactersInRange(range, withString: "https://content6.flixster.com/")
         }
         posterImage.setImageWithURL(NSURL(string: imgURL)!)
-
+        
         // Do any additional setup after loading the view.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
