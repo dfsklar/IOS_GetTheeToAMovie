@@ -12,8 +12,7 @@ class DetailsViewController: UIViewController {
 
     @IBOutlet weak var posterImage: UIImageView!
 
-    @IBOutlet weak var titleLabel: UILabel!    
-    @IBOutlet weak var synopsisLabel: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionRichText: UITextView!
     
     
@@ -47,7 +46,6 @@ class DetailsViewController: UIViewController {
         super.viewDidLoad()
         
         titleLabel.text = details.valueForKeyPath("title") as? String
-        synopsisLabel.text = details.valueForKeyPath("synopsis") as? String
         
         //let richSynopsis = "<b>" + (details.valueForKeyPath("mpaa_rating") as! String) + "</b>"
         
@@ -70,8 +68,6 @@ class DetailsViewController: UIViewController {
           imgURL = imgURL.stringByReplacingCharactersInRange(range, withString: "https://content6.flixster.com/")
         }
         posterImage.setImageWithURL(NSURL(string: imgURL)!)
-
-        synopsisLabel.sizeToFit()
 
         // Do any additional setup after loading the view.
     }
