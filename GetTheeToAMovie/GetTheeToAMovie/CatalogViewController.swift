@@ -46,7 +46,6 @@ class CatalogViewController: UIViewController, UITableViewDataSource, UITableVie
         let cachedDataUrlString = "https://gist.githubusercontent.com/timothy1ee/d1778ca5b944ed974db0/raw/489d812c7ceeec0ac15ab77bf7c47849f2d1eb2b/gistfile1.json"
 
         // Do any additional setup after loading the view, typically from a nib.
-        println("catalog view did load")
         var url = NSURL(string: cachedDataUrlString)!
         var request = NSURLRequest(URL: url)
         DisplayError.hidden = true
@@ -57,10 +56,17 @@ class CatalogViewController: UIViewController, UITableViewDataSource, UITableVie
             if let boolDidError = error {
               self.DisplayError.hidden = false
             } else {
-              var responseDict = NSJSONSerialization.JSONObjectWithData(data, options:nil, error:nil) as! NSDictionary
-              self.movieList = responseDict["movies"] as! NSArray
-              println("Async load good")
-              self.catalogTable.reloadData()
+              if let responseDict = NSJSONSerialization.JSONObjectWithData(data, options:nil, error:nil) as? NSDictionary {
+                if let findMoviesObj = responseDict["movies"] as? NSArray {
+                   self.movieList = findMoviesObj
+                   self.catalogTable.reloadData()
+                }
+              }
+              // We may have experienced a failure regarding the JSON's structure.
+              // Let's detect that and if so, let's just show the Network Error box for now...
+                if self.movieList.count < 1 {
+                    self.DisplayError.hidden = false
+                }
             }
             SwiftLoader.hide()
             self.refreshControl.endRefreshing()
@@ -69,18 +75,6 @@ class CatalogViewController: UIViewController, UITableViewDataSource, UITableVie
     
     
     
-    // We are only simulating the obtaining of a "data refresh" over the internet.
-    // So we simply delay 2 seconds and then end the refresh-in-progress feedback:
-    
-    /* I modified this so the pulldown-gesture refresh does an *actual* reload instead of a simulation!
-    func delay(delay:Double, closure:()->()) {
-        dispatch_after(
-          dispatch_time(
-            DISPATCH_TIME_NOW,
-            Int64(delay * Double(NSEC_PER_SEC))
-          ), dispatch_get_main_queue(), closure)
-    }
-*/
     
     func onRefresh() {
         self.reloadCatalogFromDataSource(false)
@@ -103,6 +97,8 @@ class CatalogViewController: UIViewController, UITableViewDataSource, UITableVie
         
         return cell
     }
+    
+    
     
     // Determine how many cells are needed for the current movie collection
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
