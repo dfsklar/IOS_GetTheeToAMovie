@@ -17,3 +17,4 @@ Optional features completed:
 * On Details page, low-res is loaded immediately and the high-res is loaded as soon as available
 
 ![Video Walkthrough](SklarDavid-Tumblr-MovieCatalog.gif)
+![Video Walkthrough](SklarDavid-Tumblr-MovieCatalog-networkerror.gif)
