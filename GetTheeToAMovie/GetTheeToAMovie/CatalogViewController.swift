@@ -24,7 +24,7 @@ class CatalogViewController: UIViewController, UITableViewDataSource, UITableVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.catalogTable.dataSource = self
         self.catalogTable.delegate = self
         
@@ -41,10 +41,10 @@ class CatalogViewController: UIViewController, UITableViewDataSource, UITableVie
     
     
     func reloadCatalogFromDataSource(boolIsVeryFirstLoad: Bool) {
-    
+        
         // Access static cached data simulating the RottenTom API
         let cachedDataUrlString = "https://gist.githubusercontent.com/timothy1ee/d1778ca5b944ed974db0/raw/489d812c7ceeec0ac15ab77bf7c47849f2d1eb2b/gistfile1.json"
-
+        
         // Do any additional setup after loading the view, typically from a nib.
         var url = NSURL(string: cachedDataUrlString)!
         var request = NSURLRequest(URL: url)
@@ -54,16 +54,16 @@ class CatalogViewController: UIViewController, UITableViewDataSource, UITableVie
             (response: NSURLResponse!, data: NSData!, error: NSError!) -> Void in
             
             if let boolDidError = error {
-              self.DisplayError.hidden = false
+                self.DisplayError.hidden = false
             } else {
-              if let responseDict = NSJSONSerialization.JSONObjectWithData(data, options:nil, error:nil) as? NSDictionary {
-                if let findMoviesObj = responseDict["movies"] as? NSArray {
-                   self.movieList = findMoviesObj
-                   self.catalogTable.reloadData()
+                if let responseDict = NSJSONSerialization.JSONObjectWithData(data, options:nil, error:nil) as? NSDictionary {
+                    if let findMoviesObj = responseDict["movies"] as? NSArray {
+                        self.movieList = findMoviesObj
+                        self.catalogTable.reloadData()
+                    }
                 }
-              }
-              // We may have experienced a failure regarding the JSON's structure.
-              // Let's detect that and if so, let's just show the Network Error box for now...
+                // We may have experienced a failure regarding the JSON's structure.
+                // Let's detect that and if so, let's just show the Network Error box for now...
                 if self.movieList.count < 1 {
                     self.DisplayError.hidden = false
                 }
@@ -90,9 +90,9 @@ class CatalogViewController: UIViewController, UITableViewDataSource, UITableVie
         var igInfo : NSDictionary = self.movieList[indexPath.row] as! NSDictionary
         
         if let imgURL = (igInfo.valueForKeyPath("posters.thumbnail")) as? String {
-          cell.imagewidget.setImageWithURL(NSURL(string: imgURL)!)
+            cell.imagewidget.setImageWithURL(NSURL(string: imgURL)!)
         }
-
+        
         cell.descriptionLabel.text =  (igInfo.valueForKeyPath("synopsis")) as? String
         cell.titleLabel.text = (igInfo.valueForKeyPath("title")) as? String
         
@@ -119,12 +119,12 @@ class CatalogViewController: UIViewController, UITableViewDataSource, UITableVie
         }
     }
     
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
+    
+    
 }
 
