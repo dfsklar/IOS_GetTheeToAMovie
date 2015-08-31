@@ -78,13 +78,13 @@
                                             <constraint firstAttribute="height" constant="20" id="Ho9-CH-QdR"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="38" id="3Sb-HG-zri"/>
+                                    <constraint firstAttribute="height" constant="30" id="3Sb-HG-zri"/>
                                     <constraint firstAttribute="trailing" secondItem="4qD-5p-NfB" secondAttribute="trailing" constant="3" id="5ph-Ln-N1H"/>
                                     <constraint firstItem="4qD-5p-NfB" firstAttribute="leading" secondItem="7MR-Ey-01w" secondAttribute="leading" constant="3" id="K4y-10-c9O"/>
                                     <constraint firstItem="4qD-5p-NfB" firstAttribute="top" secondItem="7MR-Ey-01w" secondAttribute="top" constant="3" id="o3C-xo-Z5L"/>
@@ -94,10 +94,10 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="k3f-Uv-ftL" secondAttribute="bottom" id="5HQ-vB-F5O"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="7MR-Ey-01w" secondAttribute="trailing" id="EOP-S9-Fr8"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="7MR-Ey-01w" secondAttribute="trailing" constant="-15" id="EOP-S9-Fr8"/>
                             <constraint firstItem="k3f-Uv-ftL" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="HWy-rT-Ria"/>
                             <constraint firstItem="7MR-Ey-01w" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="OT4-jf-AyY"/>
-                            <constraint firstItem="7MR-Ey-01w" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="VUv-iy-Rth"/>
+                            <constraint firstItem="7MR-Ey-01w" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-15" id="VUv-iy-Rth"/>
                             <constraint firstItem="k3f-Uv-ftL" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="nzo-eB-nu3"/>
                             <constraint firstAttribute="trailing" secondItem="k3f-Uv-ftL" secondAttribute="trailing" id="tmK-X3-JM6"/>
                         </constraints>
