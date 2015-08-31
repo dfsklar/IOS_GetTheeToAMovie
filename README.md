@@ -18,7 +18,7 @@ Optional features completed:
 
 Future topics that I experimented with:
 
-* The entire layout uses constraint-based auto-computed layout so runs well on any device form factor.  (This led to dozens of "misplaced view" warnings and I do need guidance on how to let the system know that layout will be algorithmic so it will know now to show those warning messages.)
+* The entire layout uses constraint-based auto-computed layout so runs well on any device form factor.  (This led to dozens of "misplaced view" warnings, and I do need guidance on how to let the system know that layout will be algorithmic so it will know to refrain from showing those those inaccurate warning messages.)
 
 
 ![Video Walkthrough](SklarDavid-Tumblr-MovieCatalog.gif)
