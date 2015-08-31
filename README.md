@@ -2,7 +2,7 @@
 
 This is a movie-info browser application for iOS submitted as the Week 1 assignment for CodePath.
 
-Time spent: 14 hours
+Time spent: 16 hours
 
 Mandatory features completed:
 
@@ -15,6 +15,11 @@ Mandatory features completed:
 Optional features completed:
 
 * On Details page, low-res is loaded immediately and the high-res is loaded as soon as available
+
+Future topics that I experimented with:
+
+* The entire layout uses constraint-based auto-computed layout so runs well on any device form factor.  (This led to dozens of "misplaced view" warnings and I do need guidance on how to let the system know that layout will be algorithmic so it will know now to show those warning messages.)
+
 
 ![Video Walkthrough](SklarDavid-Tumblr-MovieCatalog.gif)
 
