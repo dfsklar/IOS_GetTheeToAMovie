@@ -89,9 +89,10 @@ class CatalogViewController: UIViewController, UITableViewDataSource, UITableVie
         
         var igInfo : NSDictionary = self.movieList[indexPath.row] as! NSDictionary
         
-        var imgURL = (igInfo.valueForKeyPath("posters.thumbnail")) as! String
-        
-        cell.imagewidget.setImageWithURL(NSURL(string: imgURL)!)
+        if let imgURL = (igInfo.valueForKeyPath("posters.thumbnail")) as? String {
+          cell.imagewidget.setImageWithURL(NSURL(string: imgURL)!)
+        }
+
         cell.descriptionLabel.text =  (igInfo.valueForKeyPath("synopsis")) as? String
         cell.titleLabel.text = (igInfo.valueForKeyPath("title")) as? String
         
@@ -107,14 +108,15 @@ class CatalogViewController: UIViewController, UITableViewDataSource, UITableVie
     
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let cell = sender as! UITableViewCell
-        let indexPathSelectedCell = catalogTable.indexPathForCell(cell)!
-        let detailsDict = movieList[indexPathSelectedCell.row] as! NSDictionary
-        let destinationViewC = segue.destinationViewController as! DetailsViewController
-        destinationViewC.details = detailsDict
-        
-        // Deselect the cell that was touched so upon return we have a  clean slate
-        catalogTable.deselectRowAtIndexPath(indexPathSelectedCell, animated:false)
+        if let cell = sender as? UITableViewCell {
+            let indexPathSelectedCell = catalogTable.indexPathForCell(cell)!
+            if let detailsDict = movieList[indexPathSelectedCell.row] as? NSDictionary {
+                let destinationViewC = segue.destinationViewController as! DetailsViewController
+                destinationViewC.details = detailsDict
+                // Deselect the cell that was touched so upon return we have a clean slate
+                catalogTable.deselectRowAtIndexPath(indexPathSelectedCell, animated:false)
+            }
+        }
     }
     
 
